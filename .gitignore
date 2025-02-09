@@ -7,3 +7,10 @@ backend/.env
 frontend/node_modules/
 frontend/.env
 frontend/.next
+
+
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
