@@ -14,27 +14,19 @@ load_dotenv()  # Load environment variables from .env file
 app = Flask(__name__)
 CORS(app)  # Enable CORS for React frontend
 
-# Sample blog data
-"""blogs = [
-    {"id": 1, "title": "My First Blog", "content": "This is the content of my first blog."},
-    {"id": 2, "title": "React Tips", "content": "Here are some tips for using React."},
-]"""
 
-"""@app.route('/api/blogs', methods=['GET'])
-def get_blogs():
-    return jsonify(blogs)
-
-@app.route('/api/blogs/<int:id>', methods=['GET'])
-def get_blog(id):
-    blog = next((blog for blog in blogs if blog['id'] == id), None)
-    return jsonify(blog) if blog else ('Blog not found', 404)"""
-
-
-# Email configuration
-SMTP_SERVER = "smtp.sendgrid.net"  # Change this based on your email provider
+# Email configuration for depolyment
+"""SMTP_SERVER = "smtp.sendgrid.net"  # Change this based on your email provider
 SMTP_PORT = 587  # Port for TLS
 EMAIL_SENDER = "lawbindpandey01dev@gmail.com"  # Your email address
-EMAIL_PASSWORD = "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"  # Use an app password for security
+EMAIL_PASSWORD = os.getenv("SENDGRID_API_KEY")  # Use an app password for security """
+
+# Email configuration for testing on local
+SMTP_SERVER = "smtp.gmail.com"  # Change this based on your email provider
+SMTP_PORT = 587  # Port for TLS
+EMAIL_SENDER = "lawbindpandey01dev@gmail.com"  # Your email address
+EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  # Use an app password for security
+
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
@@ -72,7 +64,6 @@ def send_email():
 
 
 # Get MongoDB URI from environment variables
-#mongo_uri = os.getenv('MONGODB_URI', 'mongodb+srv://<username>:<password>@cluster0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 app.config["MONGO_URI"] = os.getenv("MONGODB_URI")
 mongo = PyMongo(app)
 db = mongo.db.Blogs 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import gitHubImage from '../assets/icons8-github.svg';
 import linkedInImage from '../assets/icons8-linkedin.svg';
 import xImage from '../assets/icons8-x.svg';
@@ -8,28 +8,56 @@ const Contact = () => {
     email: "",
     message: "",
   });
-
+  const [status, setStatus] = useState(null); // Success/Error message
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    setStatus(null); // Reset status
+    try{
 
-    const result = await response.json();
-    alert(result.message);
+      const response = await fetch("/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
+      const data = await response.json();
+      //alert(result.message);
+      if (response.ok) {
+        setStatus({ success: true, message: "Email sent successfully!" });
+        setFormData({ fullName: "", email: "", message: "" }); // Clear form
+      } else {
+        setStatus({ success: false, message: data.message || "Email sending failed!" });
+      }
+
+    }catch (error) {
+      setStatus({ success: false, message: "Server error. Try again later!" });
+    }
+    
   };
+// ✅ Auto-hide the message after 3 seconds
+useEffect(() => {
+  if (status) {
+    const timer = setTimeout(() => setStatus(null), 2000);
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }
+}, [status]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
       {/* Header */}
       <h1 className="text-4xl font-bold mb-8 text-center">Reach Out</h1>
-
+      {status && (
+        <div
+          className={`p-4 my-2 w-full max-w-md text-center rounded-lg 
+          ${status.success ? "bg-green-100 text-green-700 border-green-500" : "bg-red-100 text-red-700 border-red-500"} border`}
+        >
+          {status.success ? "✅" : "❌"} {status.message}
+        </div>
+      )}
       {/* Container with two sections side by side */}
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
         {/* Section 1: Contact Info */}

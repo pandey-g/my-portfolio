@@ -8,11 +8,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const About = () => {
+  // Function to handle CV download
   const resumeUrl = "https://drive.google.com/file/d/1fWKDdQg0VeKH3IzDrfbLXJnGj9JFwPGc/view?usp=drive_link";
-
-const handleDownload = () => {
-  window.open(resumeUrl, "_blank");
-};
+  const handleDownload = () => {
+    window.open(resumeUrl, "_blank");
+  };
 
   return (
     <div className="p-4 lg:p-8 bg-gray-100 dark:bg-gray-900 min-h-screen">
@@ -21,8 +21,8 @@ const handleDownload = () => {
         About Me
       </h1>
 
-      {/* Section 1: Personal Info and CV */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      {/* Section 1: Personal Info and Profiles */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
         {/* Subsection 1.1: Personal Info */}
         <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Personal Information</h2>
@@ -44,6 +44,40 @@ const handleDownload = () => {
           >
             Download CV
           </button>
+        </div>
+
+        {/* Subsection 1.3: Profiles */}
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-center items-center">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Profiles</h2>
+          <div className="flex space-x-6">
+            {/* GFG Profile */}
+            <a
+              href="https://www.geeksforgeeks.org/user/lawbindpandey01w/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition duration-300"
+            >
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20231228172727/gfg-image.jpg"
+                alt="GFG Profile"
+                className="w-20 h-20 rounded-full"
+              />
+            </a>
+
+            {/* LeetCode Profile */}
+            <a
+              href="https://leetcode.com/u/w_pandey_ji/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition duration-300"
+            >
+              <img
+                src="https://leetcode.com/static/images/LeetCode_logo_rvs.png"
+                alt="LeetCode Profile"
+                className="w-20 h-20 rounded-full"
+              />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -177,7 +211,7 @@ const handleDownload = () => {
           <li className="flex items-center">
             <FontAwesomeIcon icon={faBook} className="text-green-500 mr-2" />
             <a
-              href="https://drive.google.com/file/d/1qnoBkob-OJCt7AF2c1ZQ8cSJzAzFu-zE/view?usp=sharing"
+               href="https://drive.google.com/file/d/1qnoBkob-OJCt7AF2c1ZQ8cSJzAzFu-zE/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:underline"

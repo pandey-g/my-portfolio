@@ -14,7 +14,7 @@ const NavBar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo or Portfolio Name */}
         <Link to="/" className="text-gray-800 dark:text-white text-xl font-bold">
-          My Portfolio
+        Law's Portfolio
         </Link>
 
         {/* Navigation Links (Desktop) and Theme Toggle */}
