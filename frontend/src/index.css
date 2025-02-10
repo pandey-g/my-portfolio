@@ -26,3 +26,9 @@ code {
   color: #e2e8f0; /* Light gray color */
   transform: translateY(-2px);
 }
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

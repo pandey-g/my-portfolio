@@ -40,9 +40,9 @@ const Contact = () => {
           <p className="text-lg font-semibold">Phone: +91 8019717994</p>
           <p className="text-lg font-semibold">Location: Hyderabad, India 🇮🇳</p>
           <div className="flex space-x-4 mt-4">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-500 dark:text-blue-400"><img src={gitHubImage} alt="GitHub" className="w-12 h-12" /></a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-500 dark:text-blue-400"><img src={linkedInImage} alt="LinkedIn" className="w-12 h-12" /></a>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-500 dark:text-blue-400"><img src={xImage} alt="X" className="w-12 h-12" /></a>
+            <a href="https://github.com/pandey-g" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-500 dark:text-blue-400"><img src={gitHubImage} alt="GitHub" className="w-12 h-12" /></a>
+            <a href="https://www.linkedin.com/in/lawbindpandey/" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-500 dark:text-blue-400"><img src={linkedInImage} alt="LinkedIn" className="w-12 h-12" /></a>
+            <a href="https://x.com/luv_pandey_ji" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-500 dark:text-blue-400"><img src={xImage} alt="X" className="w-12 h-12" /></a>
           </div>
         </div>
 
