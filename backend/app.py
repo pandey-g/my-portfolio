@@ -26,17 +26,13 @@ def serve(path):
 
 
 
-# Email configuration for depolyment
-SMTP_SERVER = "smtp.sendgrid.net"  # Change this based on your email provider
-SMTP_PORT = 587  # Port for TLS
-EMAIL_SENDER = "lawbindpandey01dev@gmail.com"  # Your email address
-EMAIL_PASSWORD = os.getenv("SENDGRID_API_KEY")  # Use an app password for security
+
 
 # Email configuration for testing on local
-"""SMTP_SERVER = "smtp.gmail.com"  # Change this based on your email provider
+SMTP_SERVER = "smtp.gmail.com"  # Change this based on your email provider
 SMTP_PORT = 587  # Port for TLS
 EMAIL_SENDER = "lawbindpandey01dev@gmail.com"  # Your email address
-EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  # Use an app password for security"""
+EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  # Use an app password for security
 
 
 @app.route('/send-email', methods=['POST'])
