@@ -27,7 +27,7 @@ def get_blog(id):
 SMTP_SERVER = "smtp.sendgrid.net"  # Change this based on your email provider
 SMTP_PORT = 587  # Port for TLS
 EMAIL_SENDER = "lawbindpandey01dev@gmail.com"  # Your email address
-EMAIL_PASSWORD = "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"  # Use an app password for security
+EMAIL_PASSWORD = ""  # Use an app password for security
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
