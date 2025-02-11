@@ -11,7 +11,7 @@ from bson.errors import InvalidId
 from flask_pymongo import PyMongo
 load_dotenv()  # Load environment variables from .env file
 
-pp = Flask(__name__, static_folder="build")
+app = Flask(__name__, static_folder="build")
 #CORS(app)  # Enable CORS for React frontend
 
 
