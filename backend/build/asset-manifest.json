@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7823d29b.css",
+    "main.js": "/static/js/main.8e6e5b3d.js",
+    "static/js/488.e75445ad.chunk.js": "/static/js/488.e75445ad.chunk.js",
+    "static/media/Portfolio.png": "/static/media/Portfolio.5627829212a2bdae0eb2.png",
+    "static/media/LawDP.jpg": "/static/media/LawDP.1c6f287dbef815a50d07.jpg",
+    "static/media/AlgerianFireForest.png": "/static/media/AlgerianFireForest.fd355f51e654b8bd055c.png",
+    "static/media/DiabetesPrediction.png": "/static/media/DiabetesPrediction.cb96f4595243f468182b.png",
+    "static/media/NoteBook.jpg": "/static/media/NoteBook.89eed70cf3c37e3c2e0f.jpg",
+    "static/media/icons8-github.svg": "/static/media/icons8-github.b2294bccaa20da50b7d58419f07c0892.svg",
+    "static/media/icons8-linkedin.svg": "/static/media/icons8-linkedin.c304a4148cde039a54532585f4d47b48.svg",
+    "index.html": "/index.html",
+    "static/media/icons8-x.svg": "/static/media/icons8-x.dc3f1229c98ceb25ed6d9384ae804ca1.svg",
+    "main.7823d29b.css.map": "/static/css/main.7823d29b.css.map",
+    "main.8e6e5b3d.js.map": "/static/js/main.8e6e5b3d.js.map",
+    "488.e75445ad.chunk.js.map": "/static/js/488.e75445ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7823d29b.css",
+    "static/js/main.8e6e5b3d.js"
+  ]
+}

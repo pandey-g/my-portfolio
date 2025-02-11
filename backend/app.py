@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request,send_from_directory
 from flask_cors import CORS
 import smtplib
 from email.mime.text import MIMEText
@@ -11,21 +11,32 @@ from bson.errors import InvalidId
 from flask_pymongo import PyMongo
 load_dotenv()  # Load environment variables from .env file
 
-app = Flask(__name__)
-CORS(app)  # Enable CORS for React frontend
+pp = Flask(__name__, static_folder="build")
+#CORS(app)  # Enable CORS for React frontend
+
+
+# Serve React App
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve(path):
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, "index.html")
+
 
 
 # Email configuration for depolyment
-"""SMTP_SERVER = "smtp.sendgrid.net"  # Change this based on your email provider
+SMTP_SERVER = "smtp.sendgrid.net"  # Change this based on your email provider
 SMTP_PORT = 587  # Port for TLS
 EMAIL_SENDER = "lawbindpandey01dev@gmail.com"  # Your email address
-EMAIL_PASSWORD = os.getenv("SENDGRID_API_KEY")  # Use an app password for security """
+EMAIL_PASSWORD = os.getenv("SENDGRID_API_KEY")  # Use an app password for security
 
 # Email configuration for testing on local
-SMTP_SERVER = "smtp.gmail.com"  # Change this based on your email provider
+"""SMTP_SERVER = "smtp.gmail.com"  # Change this based on your email provider
 SMTP_PORT = 587  # Port for TLS
 EMAIL_SENDER = "lawbindpandey01dev@gmail.com"  # Your email address
-EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  # Use an app password for security
+EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  # Use an app password for security"""
 
 
 @app.route('/send-email', methods=['POST'])
