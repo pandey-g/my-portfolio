@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import gitHubImage from '../assets/icons8-github.svg';
 import linkedInImage from '../assets/icons8-linkedin.svg';
 import xImage from '../assets/icons8-x.svg';
+
+
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -14,11 +17,12 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
+    const apiURL = process.env.REACT_APP_API_URL;
     e.preventDefault();
     setStatus(null); // Reset status
     try{
 
-      const response = await fetch("/send-email", {
+      const response = await fetch(`${apiURL}/send-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

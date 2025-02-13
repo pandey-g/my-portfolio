@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+const apiURL = process.env.REACT_APP_API_URL ;
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("/api/blogs") // No need for full URL since proxy is configured
+    fetch(`${apiURL}/api/blogs`) // No need for full URL since proxy is configured
       .then((res) => res.json())
       .then((data) => setBlogs(data))
       .then(data => console.log(data))
@@ -17,7 +18,7 @@ const Blog = () => {
 
   const fetchBlogDetails = (id) => {
     setLoading(true);
-    fetch(`/api/blogs/${id}`)
+    fetch(`${apiURL}/api/blogs/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSelectedBlog(data);

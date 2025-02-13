@@ -15,12 +15,6 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for React frontend
 
 
-# Email configuration for depolyment
-"""SMTP_SERVER = "smtp.sendgrid.net"  # Change this based on your email provider
-SMTP_PORT = 587  # Port for TLS
-EMAIL_SENDER = "lawbindpandey01dev@gmail.com"  # Your email address
-EMAIL_PASSWORD = os.getenv("SENDGRID_API_KEY")  # Use an app password for security """
-
 # Email configuration for testing on local
 SMTP_SERVER = "smtp.gmail.com"  # Change this based on your email provider
 SMTP_PORT = 587  # Port for TLS
